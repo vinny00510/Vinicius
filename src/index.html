@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link href="css/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		@import url("css/main.css");
+		@import url("css/facebox.css");
+	</style>
+
+  <script language="JavaScript" type="text/javascript">
+  
+	function dateMask(inputData, e){
+	  if(document.all) // Internet Explorer
+		var tecla = event.keyCode;
+	  else //Outros Browsers
+		var tecla = e.which;
+	  if(tecla >= 47 && tecla < 58){ // numeros de 0 a 9 e ""/""
+		var data = inputData.value;
+		if (data.length == 2 || data.length == 5){
+		  data += '/';
+		  inputData.value = data;
+		}
+	  }
+	  else
+	  if(tecla == 8 || tecla == 0) // Backspace, Delete e setas direcionais(para mover o cursor, apenas para FF)
+		return true;
+	  else
+		return false;
+	}
+	
+	function cepMask(inputCep, e){
+	  if(document.all) // Internet Explorer
+		var tecla = event.keyCode;
+	  else //Outros Browsers
+		var tecla = e.which;
+	  if(tecla >= 47 && tecla < 58){ // numeros de 0 a 9 e ""/""
+		var cep = inputCep.value;
+		if (cep.length == 5){
+		  cep += '-';
+		  inputCep.value = cep;
+		}
+	  }
+	  else
+	  if(tecla == 8 || tecla == 0) // Backspace, Delete e setas direcionais(para mover o cursor, apenas para FF)
+		return true;
+	  else
+		return false;
+	}
+	
+	function telefoneMask(inputTel, e){
+	  if(document.all) // Internet Explorer
+		var tecla = event.keyCode;
+	  else //Outros Browsers
+		var tecla = e.which;
+	  if(tecla >= 47 && tecla < 58){ // numeros de 0 a 9 e ""/""
+		var Tel = inputTel.value;
+		if (Tel.length == 0){
+		  Tel += '(';
+		  inputTel.value = Tel;
+		}
+		if (Tel.length == 3){
+		  Tel += ') ';
+		  inputTel.value = Tel;
+		}
+		if (Tel.length == 9){
+		  Tel += '-';
+		  inputTel.value = Tel;
+		}
+	  }
+	  else
+	  if(tecla == 8 || tecla == 0) // Backspace, Delete e setas direcionais(para mover o cursor, apenas para FF)
+		return true;
+	  else
+		return false;
+	}
+	
+	function MM_goToURL() { //v3.0
+	var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+	  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+	}
+	
+	function confirma_excluir(endereco){
+	  if (confirm("Tem certeza que deseja excluir o contato?")) {
+	    document.location=endereco;
+	}
+	}
+	
+	function contato_Validator(theForm)
+	{
+		if (theForm.cmb_tipo.value == 0)
+	  {
+		alert("Selecione um Grupo para o Contato "Grupo".");
+		theForm.cmb_tipo.focus();
+		return (false);
+	  }
+		if (theForm.edt_nome.value == "")
+	  {
+		alert("Digite um valor para o Nome "Nome".");
+		theForm.edt_nome.focus();
+		return (false);
+	  }
+		if (theForm.edt_telefone1.value == "")
+	  {
+		alert("Digite um valor para o Telefone "Telefone".");
+		theForm.edt_telefone1.focus();
+		return (false);
+	  }
+	  return (true);
+	}
+	
+	function contato_ValidatorA(theForm)
+	{
+		if (theForm.edt_senhaa.value == "")
+	  {
+		alert("Senha Atual Incorreta "Senha Atual".");
+		theForm.edt_senhaa.focus();
+		return (false);
+	  }
+		if (theForm.edt_senhan.value == "")
+	  {
+		alert("Nova Senha não pode ser nula "Nova Senha".");
+		theForm.edt_senhan.focus();
+		return (false);
+	  }
+		if (theForm.edt_senhan.value != theForm.edt_senhac.value)
+	  {
+		alert("Nova Senha Incorreta "Nova Senha".");
+		theForm.edt_senhan.focus();
+		return (false);
+	  }
+	  return (true);
+	}
+
+</script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
